@@ -15,8 +15,8 @@ let skin;
 // Element to hold all the balls
 let container = {
   element: document.getElementById("container"),
-  width: 800,
-  height: 600,
+  width: 1400,
+  height: 400,
   initialize: function () {
     this.element.style.width = this.width + "px";
     this.element.style.height = this.height + "px";

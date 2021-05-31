@@ -13,11 +13,43 @@
 
   <div style="height:100px;">
     <h1>Bouncing Balls</h1>
-
-    <p>Click inside the ball area to add balls</p>
+    
   </div>
 
-  <div id="canvas"></div>
+  <div id="container"></div>
+  <div id="dashboard">
+    <div id="buttons">
+      <button id="ballsizeplus" class="btc">
+        BallSize+
+      </button>
+      <button id="ballsizeless" class="btc">
+        BallSize-
+      </button>
+      <button id="speedplus" class="btc">
+        Speed+
+      </button>
+      <button id="speedless" class="btc">
+        Speed-
+      </button>
+      <button id="pause" class="btc">
+        Pause
+      </button>
+      <button id="play" class="btc">
+        Play
+      </button>
+      <button id="reset" class="btc">
+        Reset
+      </button>
+    </div>
+
+    <div id="colorchange">
+      <p>Change balls color</p>
+      <div id="red" class="ballc"></div>
+      <div id="blue" class="ballc"></div>
+      <div id="green" class="ballc"></div>
+      <div id="multicolor" class="ballc"></div>
+    </div>
+  </div>
 
   <script src="script/script.js"></script>
 </body>
