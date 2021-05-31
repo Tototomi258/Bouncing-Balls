@@ -45,7 +45,7 @@ container.element.addEventListener("mouseup", function (e) {
 
   //counter
   var counter = document.getElementsByClassName(" ball");
-  console.log(counter.length);
+
   var counterDiv = document.getElementById("counter");
   counterDiv.innerHTML = counter.length + 1;
 
@@ -190,6 +190,7 @@ function smaller() {
 
 //COLORS
 document.getElementById("red").addEventListener("click", changeColorRed);
+
 function changeColorRed() {
   var singleball = document.getElementsByClassName(" ball");
   for (var j = 0; j < 50; j++) {                          //dimensioni cicli da modificare
@@ -213,14 +214,6 @@ function changeColorGreen() {
   }
 }
 
-//counter
-var counter = document.getElementsByClassName(" ball");
-console.log(counter.length);
-
-/*
-var counterDiv = document.getElementById("counter");
-counterDiv = counter.length;
-body.appendChild(counterDiv);*/
 
 
 
