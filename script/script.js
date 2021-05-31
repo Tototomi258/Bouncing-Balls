@@ -7,10 +7,13 @@ let count = 0;
 // TODO: change speed with HTML buttons and keyboard shortcuts
 let speed = 1;
 // TODO: pause and unpause animation
-let pause = false;
+//let pause = false;
 // TODO: take gravity into account for movement depending on size
 // TODO: implement skin variable to change ball's color or image
 let skin;
+
+var timeId;
+
 
 // Element to hold all the balls
 let container = {
@@ -39,6 +42,13 @@ container.element.addEventListener("mousemove", function (e) {
 // If "moved" variable is set to true, then ball direction is equal to mouse movement
 // If "moved" variable is set to false, then ball direction is random
 container.element.addEventListener("mouseup", function (e) {
+
+  //counter
+  var counter = document.getElementsByClassName(" ball");
+  console.log(counter.length);
+  var counterDiv = document.getElementById("counter");
+  counterDiv.innerHTML = counter.length + 1;
+
   if (moved) {
     // TODO: Direction based on mouse movement
     console.log("moved");
@@ -50,11 +60,13 @@ container.element.addEventListener("mouseup", function (e) {
     let selectedColor = colors[randomNumber];
 
     Ball.create(selectedColor, xDirection, 3).draw(xCoordinate, yCoordinate);
+
   }
 });
 
 let colors = ["blue", "red", "green"];
-
+//initialization counter id
+var i = 1;
 let Ball = {
   /**
    * Creates a Ball object based on the color and direction parameters
@@ -65,6 +77,7 @@ let Ball = {
    */
   create: function (color, dx, dy) {
     let newBall = Object.create(this);
+
     newBall.dx = dx;
     newBall.dy = dy;
     newBall.width = size;
@@ -74,6 +87,18 @@ let Ball = {
     newBall.element.style.width = newBall.width + "px";
     newBall.element.style.height = newBall.height + "px";
     newBall.element.className += " ball";
+    /*
+    newBall.addEventListener("click", function () {
+      newBall.remove();
+    }, false);
+    */
+
+
+    //adding a different id to every ball
+    newBall.element.id = i;
+    //incrementing id
+    i++;
+
     newBall.width = parseInt(newBall.element.style.width);
     newBall.height = parseInt(newBall.element.style.height);
     container.element.appendChild(newBall.element);
@@ -110,19 +135,131 @@ let Ball = {
     this.moveTo(x, y);
     let ball = this;
     // TODO: change to a requestAnimationFrame()
-    setTimeout(function () {
+    timeId = setTimeout(function () {
       ball.changeDirectionIfNecessary(x, y);
       ball.draw(x + ball.dx, y + ball.dy);
     }, 1000 / 60);
-  },
+  }
 };
 
+//BUTTONS
+
+//play and pause buttons
+document.getElementById("pause").addEventListener("click", pause);
+function pause() {
+
+  var ball2 = document.getElementsByClassName(" ball");
+  for (var i = 0; i < 50; i++) {
+    ball2[i].dx = 0;
+    ball2[i].dy = 0;
+  }
+
+  /*
+  for (var i = 0; i < 50; i++) {                          //dimensioni cicli da modificare
+    clearInterval(timeId);
+
+  }*/
+
+}
+
+//SIZE BUTTONS
+
+document.getElementById("bigger").addEventListener("click", bigger);
+function bigger() {
+  size += 2;
+
+  var ball2 = document.getElementsByClassName(" ball");
+  for (var y = 0; y < 50; y++) {                          //dimensioni cicli da modificare
+    ball2[y].style.width = size + "px";
+    ball2[y].style.height = size + "px";
+  }
+}
+
+document.getElementById("smaller").addEventListener("click", smaller);
+function smaller() {
+  if (size > 2) {
+    size -= 2;
+
+    var ball2 = document.getElementsByClassName(" ball");
+    for (var l = 0; l < 50; l++) {                          //dimensioni cicli da modificare
+      ball2[l].style.width = size + "px";
+      ball2[l].style.height = size + "px";
+    }
+  }
+}
+
+//COLORS
+document.getElementById("red").addEventListener("click", changeColorRed);
+function changeColorRed() {
+  var singleball = document.getElementsByClassName(" ball");
+  for (var j = 0; j < 50; j++) {                          //dimensioni cicli da modificare
+    singleball[j].style.backgroundColor = "red";
+  }
+}
+
+document.getElementById("blue").addEventListener("click", changeColorBlue);
+function changeColorBlue() {
+  var singleball = document.getElementsByClassName(" ball");
+  for (var j = 0; j < 50; j++) {                          //dimensioni cicli da modificare
+    singleball[j].style.backgroundColor = "blue";
+  }
+}
+
+document.getElementById("green").addEventListener("click", changeColorGreen);
+function changeColorGreen() {
+  var singleball = document.getElementsByClassName(" ball");
+  for (var j = 0; j < 50; j++) {                          //dimensioni cicli da modificare
+    singleball[j].style.backgroundColor = "green";
+  }
+}
+
+//counter
+var counter = document.getElementsByClassName(" ball");
+console.log(counter.length);
+
+/*
+var counterDiv = document.getElementById("counter");
+counterDiv = counter.length;
+body.appendChild(counterDiv);*/
+
+
+
 // TODO: delete all balls or only the ball that has been clicked
+//RESET
+document.getElementById("reset").addEventListener("click", reset);
+function reset() {
+  document.getElementById("container").innerHTML = "";
+  size = 40;
+}
+
+
 
 container.initialize();
-let ball1 = Ball.create("blue", 4, 3);
-let ball2 = Ball.create("red", 1, 5);
-let ball3 = Ball.create("green", 2, 2);
+let ball1 = Ball.create("blue", 1, 1);
+
 ball1.draw(70, 0);
-ball2.draw(20, 200);
-ball3.draw(300, 330);
+
+//delete single ball non funziona
+/*
+var ballToDelete = document.getElementsByClassName(" ball");
+for(var e=1;e<50;e++){
+ballToDelete[e].onclick = console.log("presa");
+
+}
+function deleteBall(n){
+  if(n==2){
+    var ballToDelete2 =document.getElementById("2");
+  ballToDelete2.innerHTML="";
+  console.log("deleted");
+  }
+}
+*/
+/**
+ * Problemi
+ *
+ * -ball vecchie di dimensioni grandi escono dal bordo, e ball vecchie di dimensioni piccole rimbalzano prima di toccarlo
+ *
+ * -delete ball non funziona
+ *
+ * -ottimizzare getelement e variabili ripetute
+ */
