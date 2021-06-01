@@ -12,14 +12,17 @@ let pause = false;
 // TODO: implement skin variable to change ball's color or image
 let skin;
 
+var containerHeight = document.getElementById("container").offsetHeight;
+var containerWidth = document.getElementById("container").offsetWidth;
+
 // Element to hold all the balls
 let container = {
   element: document.getElementById("container"),
-  width: 1400,
-  height: 400,
+  width: containerWidth,
+  height: containerHeight,
   initialize: function () {
-    this.element.style.width = this.width + "px";
-    this.element.style.height = this.height + "px";
+    this.element.style.width = containerWidth;
+    this.element.style.height = containerHeight;
 
     document.body.appendChild(this.element);
   },
@@ -94,10 +97,10 @@ let Ball = {
    * @param {Number} y - distance from top side of container
    */
   changeDirectionIfNecessary: function (x, y) {
-    if (x < 0 || x > container.width - this.width) {
+    if (x < 0 || x > document.getElementById("container").offsetWidth - size) {
       this.dx = -this.dx;
     }
-    if (y < 0 || y > container.height - this.height) {
+    if (y < 0 || y > document.getElementById("container").offsetHeight - size) {
       this.dy = -this.dy;
     }
   },
@@ -121,8 +124,5 @@ let Ball = {
 
 container.initialize();
 let ball1 = Ball.create("blue", 4, 3);
-let ball2 = Ball.create("red", 1, 5);
-let ball3 = Ball.create("green", 2, 2);
-ball1.draw(70, 0);
-ball2.draw(20, 200);
-ball3.draw(300, 330);
+ball1.draw(20, 0);
+
