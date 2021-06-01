@@ -87,11 +87,10 @@ let Ball = {
     newBall.element.style.width = newBall.width + "px";
     newBall.element.style.height = newBall.height + "px";
     newBall.element.className += " ball";
-    /*
-    newBall.addEventListener("click", function () {
-      newBall.remove();
-    }, false);
-    */
+
+    //newBall.onclick = console.log("presa");
+    
+    
 
 
     //adding a different id to every ball
@@ -104,6 +103,13 @@ let Ball = {
     container.element.appendChild(newBall.element);
     return newBall;
   },
+
+  /*delete: function(){
+    console.log("presa");
+    newBall.remove();
+  
+  },*/
+  
   /**
    * Moves the Ball to a new position
    * @param {Number} x - distance from left side of container
@@ -119,10 +125,10 @@ let Ball = {
    * @param {Number} y - distance from top side of container
    */
   changeDirectionIfNecessary: function (x, y) {
-    if (x < 0 || x > container.width - this.width) {
+    if (x < 0 || x > container.width - size) {
       this.dx = -this.dx;
     }
-    if (y < 0 || y > container.height - this.height) {
+    if (y < 0 || y > container.height - size) {
       this.dy = -this.dy;
     }
   },
@@ -140,13 +146,17 @@ let Ball = {
       ball.draw(x + ball.dx, y + ball.dy);
     }, 1000 / 60);
   }
+  /*, 
+  pause2: function(){
+    Ball.pause();
+  }*/
 };
 
 //BUTTONS
 
 //play and pause buttons
-document.getElementById("pause").addEventListener("click", pause);
-function pause() {
+document.getElementById("pause").addEventListener("click", Ball.pause2);
+/*function pause() {
 
   var ball2 = document.getElementsByClassName(" ball");
   for (var i = 0; i < 50; i++) {
@@ -158,9 +168,9 @@ function pause() {
   for (var i = 0; i < 50; i++) {                          //dimensioni cicli da modificare
     clearInterval(timeId);
 
-  }*/
+  }
 
-}
+}*/
 
 //SIZE BUTTONS
 
@@ -223,22 +233,24 @@ document.getElementById("reset").addEventListener("click", reset);
 function reset() {
   document.getElementById("container").innerHTML = "";
   size = 40;
+  counter.innerHTML = 0;
 }
 
 
 
 container.initialize();
 let ball1 = Ball.create("blue", 1, 1);
-
+counter.innerHTML=1;
 ball1.draw(70, 0);
 
 //delete single ball non funziona
 /*
 var ballToDelete = document.getElementsByClassName(" ball");
-for(var e=1;e<50;e++){
-ballToDelete[e].onclick = console.log("presa");
+for(var y=1;y<50;y++){
+ballToDelete[y].onclick = console.log("presa");
 
 }
+
 function deleteBall(n){
   if(n==2){
     var ballToDelete2 =document.getElementById("2");
@@ -250,7 +262,6 @@ function deleteBall(n){
 /**
  * Problemi
  *
- * -ball vecchie di dimensioni grandi escono dal bordo, e ball vecchie di dimensioni piccole rimbalzano prima di toccarlo
  *
  * -delete ball non funziona
  *
