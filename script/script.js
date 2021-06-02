@@ -55,13 +55,14 @@ container.element.addEventListener("mouseup", function (e) {
     // TODO: Direction based on mouse movement
     console.log("moved");
   } else {
-    let xCoordinate = e.x - (window.innerWidth - container.width) / 2;
+    let xCoordinate = (e.x - (window.innerWidth - container.width) / 2) this.ball;
     let yCoordinate = e.y - (window.innerHeight - container.height) / 2;
     let xDirection = Math.random() * 10 - 5;
+    let yDirection = Math.random() * 10 - 5;
     let randomNumber = Math.floor(Math.random() * 3);
     let selectedColor = colors[randomNumber];
 
-    Ball.create(selectedColor, xDirection, 3).draw(xCoordinate, yCoordinate);
+    Ball.create(selectedColor, xDirection, yDirection).draw(xCoordinate, yCoordinate);
 
   }
 });
