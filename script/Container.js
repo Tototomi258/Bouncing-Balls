@@ -1,5 +1,6 @@
 class Container {
-    constructor(element, height, width, createBallEvent) {
+
+    constructor(element, height, width, ballsUpdatedEvent) {
         const that=this;
         
         this.element = element;
@@ -12,11 +13,12 @@ class Container {
 
         this.timeFrame = 1000/60;
         this.balls=[];
-        this.ballCount=1;
-        this.ballSize=40;
+        this.defaultBallSize=40;
         this.colors = ["blue", "red", "green"];
 
         this.clickOnMove=false;
+
+        this.ballsUpdatedEvent = ballsUpdatedEvent;
 
         // Check for mousdown and change value of variable "moved" to false
         element.addEventListener("mousedown", function (e) {
@@ -29,8 +31,6 @@ class Container {
         // If "moved" variable is set to true, then ball direction is equal to mouse movement
         // If "moved" variable is set to false, then ball direction is random
         element.addEventListener("mouseup", function (e) {
-
-            createBallEvent();
             if (that.clickOnMove) {
                 // TODO: Direction based on mouse movement
                 console.log("moved");
@@ -40,8 +40,8 @@ class Container {
                     return num * (Math.round(Math.random()) ? 1 : -1);
                 }
                 const containerRect = e.target.getBoundingClientRect();
-                const x = (e.clientX - containerRect.left) - that.ballSize/2; //x position within the element.
-                const y = (e.clientY - containerRect.top) -  that.ballSize/2;//y position within the element.
+                const x = (e.clientX - containerRect.left) - that.defaultBallSize/2; //x position within the element.
+                const y = (e.clientY - containerRect.top) -  that.defaultBallSize/2;//y position within the element.
                 //const x = (e.x - (window.innerWidth - container.width) / 2) + that.ballSize / 2;
                 //const y = (e.y - (window.innerHeight - container.height) / 2)  + that.ballSize / 2;
                 const xSpeed = genSpeed();
@@ -49,11 +49,10 @@ class Container {
                 const randomNumber = Math.floor(Math.random() * 3);
                 const selectedColor = that.colors[randomNumber];
 
-                const ball=new Ball(that.ballCount, x, y, xSpeed, ySpeed, selectedColor, that.ballSize, that.element);
+                const ball=new Ball(that.balls.length, x, y, xSpeed, ySpeed, selectedColor, that.defaultBallSize, that.element);
                 that.balls.push(ball);
-                counter.innerHTML =that.ballCount;
-                that.ballCount++;
             }
+            that.ballsUpdatedEvent(that.balls);
         });
 
         setInterval(function () {
@@ -66,11 +65,10 @@ class Container {
         }, this.timeFrame );
     
     }
-    reset(){
-           this.balls=[];
-           this.ballCount=1;
-        }
-    
 
+    reset(){
+       this.balls=[];
+       this.ballsUpdatedEvent(this.balls);
+    }
 
 }
