@@ -12,7 +12,7 @@ class Container {
 
         this.timeFrame = 1000/60;
         this.balls=[];
-        this.ballCount=0;
+        this.ballCount=1;
         this.ballSize=40;
         this.colors = ["blue", "red", "green"];
 
@@ -44,7 +44,6 @@ class Container {
                 const y = (e.clientY - containerRect.top) -  that.ballSize/2;//y position within the element.
                 //const x = (e.x - (window.innerWidth - container.width) / 2) + that.ballSize / 2;
                 //const y = (e.y - (window.innerHeight - container.height) / 2)  + that.ballSize / 2;
-
                 const xSpeed = genSpeed();
                 const ySpeed = genSpeed();
                 const randomNumber = Math.floor(Math.random() * 3);
@@ -52,6 +51,7 @@ class Container {
 
                 const ball=new Ball(that.ballCount, x, y, xSpeed, ySpeed, selectedColor, that.ballSize, that.element);
                 that.balls.push(ball);
+                counter.innerHTML =that.ballCount;
                 that.ballCount++;
             }
         });
@@ -66,6 +66,11 @@ class Container {
         }, this.timeFrame );
     
     }
+    reset(){
+           this.balls=[];
+           this.ballCount=1;
+        }
+    
 
 
 }

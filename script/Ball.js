@@ -23,17 +23,15 @@ class Ball {
         
         
     }
-/* mettere funzione draw senza moveto,
-    }*/
+
 
     move() {
         this.x+=this.xSpeed;
         this.y+=this.ySpeed;
         this.changeDirectionIfNecessary(this.x, this.y);
-
         this.element.style.left = this.x  + "px";
         this.element.style.top = this.y  + "px";
-        // TODO: change to a requestAnimationFrame()
+        
 
     }
     
