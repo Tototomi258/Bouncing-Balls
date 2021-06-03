@@ -1,60 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gioco palline</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gioco palline</title>
-  <link rel="stylesheet" href="style/style.css" />
-</head>
+  <body>
+    <div>
+      <h1>Bouncing Balls</h1>
+    </div>
+    <div id="counter"></div>
+    <div id="container"></div>
+    <div id="dashboard">
+      <div id="buttons">
+        <button id="ballsizeplus" class="btc">BallSize+</button>
+        <button id="ballsizeless" class="btc">BallSize-</button>
+        <button id="speedplus" class="btc">Speed+</button>
+        <button id="speedless" class="btc">Speed-</button>
+        <button id="pause" class="btc">Pause</button>
+        <button id="play" class="btc">Play</button>
+        <button id="reset" class="btc">Reset</button>
+      </div>
 
-<body>
-
-  <div>
-    <h1>Bouncing Balls</h1>
-    
-  </div>
-  <div id="counter"></div>
-  <div id="container"></div>
-  <div id="dashboard">
-    <div id="buttons">
-      <button id="ballsizeplus" class="btc">
-        BallSize+
-      </button>
-      <button id="ballsizeless" class="btc">
-        BallSize-
-      </button>
-      <button id="speedplus" class="btc">
-        Speed+
-      </button>
-      <button id="speedless" class="btc">
-        Speed-
-      </button>
-      <button id="pause" class="btc">
-        Pause
-      </button>
-      <button id="play" class="btc">
-        Play
-      </button>
-      <button id="reset" class="btc">
-        Reset
-      </button>
+      <div id="colorchange">
+        <p>Change balls color</p>
+        <div id="red" class="ballc"></div>
+        <div id="blue" class="ballc"></div>
+        <div id="green" class="ballc"></div>
+        <div id="multicolor" class="ballc"></div>
+      </div>
     </div>
 
-    <div id="colorchange">
-      <p>Change balls color</p>
-      <div id="red" class="ballc"></div>
-      <div id="blue" class="ballc"></div>
-      <div id="green" class="ballc"></div>
-      <div id="multicolor" class="ballc"></div>
-    </div>
-  </div>
-
-  
-  <script src="script/Ball.js"></script>
-  <script src="script/Container.js"></script>
-  <script src="script/script2.js"></script>
-</body>
-
+    <script src="script/Ball.js"></script>
+    <script src="script/Container.js"></script>
+    <script src="script/script.js"></script>
+  </body>
 </html>
