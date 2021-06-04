@@ -31,10 +31,10 @@ class Ball {
 
   changeDirectionIfNecessary(x, y) {
     if (x < 0 || x > this.container.offsetWidth - this.size) {
-      // if we are outside of container we invert the direction
+      // if outside of container invert the direction
       this.xSpeed = -this.xSpeed;
 
-      // if we are outside of container we have to put the ball inside again
+      // if outside of container put the ball inside again
       if (x < 0) {
         this.x = 0;
       } else {
@@ -42,10 +42,10 @@ class Ball {
       }
     }
     if (y < 0 || y > this.container.offsetHeight - this.size) {
-      // if we are outside of container we invert the direction
+      // if outside of container invert the direction
       this.ySpeed = -this.ySpeed;
 
-      // if we are outside of container we have to put the ball inside again
+      // if outside of container put the ball inside again
       if (y < 0) {
         this.y = 0;
       } else {
