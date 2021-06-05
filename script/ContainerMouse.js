@@ -1,12 +1,12 @@
 class ContainerMouse {
-    constructor(element,defaultBallSize, onClick) {
+    constructor(element, defaultBallSize, onClick) {
         const that = this;
         this.clickOnMove = false;
         this.oldX = 0;
         this.oldY = 0;
         this.oldTime = 0;
-        this.getTimeReq=0;
-        this.defaultBallSize=defaultBallSize;
+        this.getTimeReq = 0;
+        this.defaultBallSize = defaultBallSize;
         // Check for mousdown and change value of variable "moved" to false
         element.addEventListener("mousedown", function (e) {
             that.clickOnMove = false;
@@ -50,10 +50,10 @@ class ContainerMouse {
             const containerRect = e.target.getBoundingClientRect();
             const x = e.clientX - containerRect.left - that.defaultBallSize / 2; //x position within the element.
             const y = e.clientY - containerRect.top - that.defaultBallSize / 2; //y position within the element.
-        
-            onClick(x,y,xSpeed,ySpeed);
+
+            onClick(x, y, xSpeed, ySpeed);
         });
 
-       //requestAnimationFrame (this.move.bind(this));
+        //requestAnimationFrame (this.move.bind(this));
     }
 }

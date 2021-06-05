@@ -7,7 +7,7 @@ class Container {
         this.height = height;
         this.element.style.width = width;
         this.element.style.height = height;
-
+        this.inputColor=null;
         this.moved = false;
         this.oldX = 0;
         this.oldY = 0;
@@ -19,15 +19,24 @@ class Container {
         this.timeFrame = 1000 / 60;
         this.balls = [];
         this.defaultBallSize = 40;
-        this.colors = ["blue", "red", "green"];
+        
 
         this.clickOnMove = false;
 
         this.ballsUpdatedEvent = ballsUpdatedEvent;
         //Create instance of ContainerMouse for handle mouse click and ball creation
-        this.containerMouse = new ContainerMouse(element,this.defaultBallSize, function (x, y, xSpeed, ySpeed) {
-            const randomNumber = Math.floor(Math.random() * 3);
-            const selectedColor = that.colors[randomNumber];
+        this.containerMouse = new ContainerMouse(
+            element,
+            this.defaultBallSize, 
+            /**
+             * This function get executed when detects a click on 'element'(container)
+             * @param {xcoordinated} x 
+             * @param {ycoordinated} y 
+             * @param {*} xSpeed 
+             * @param {*} ySpeed 
+             */
+            function (x, y, xSpeed, ySpeed) {
+            const randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
 
            
             const ball = new Ball(
@@ -36,7 +45,7 @@ class Container {
                 y,
                 xSpeed,
                 ySpeed,
-                selectedColor,
+                that.inputColor || randomColor,
                 that.defaultBallSize,
                 that.element
             );
@@ -54,9 +63,17 @@ class Container {
         }
         requestAnimationFrame(this.move.bind(this));
     }
+    setColorToAllBalls(color){
+        this.inputColor=color;
+        for(let i=0; i<this.balls.length;i++){
+            this.balls[i].element.style.backgroundColor=color;
+        }
+        
 
+    }
     reset() {
         this.balls = [];
         this.ballsUpdatedEvent(this.balls);
     }
+   
 }
