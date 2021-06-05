@@ -1,4 +1,4 @@
-counter.innerHTML = 0;
+counter.innerHTML = 0; 
 
 const container = new Container(
   document.getElementById("container"),
@@ -15,4 +15,8 @@ document.getElementById("reset").addEventListener("click", function(balls) {
 
 document.getElementById("inputcolor").addEventListener("change", function(e) {
   container.setColorToAllBalls(e.target.value);
+});
+
+document.getElementById("ballsizeplus").addEventListener("click", function(e) {
+  container.increaseBallSize();
 });

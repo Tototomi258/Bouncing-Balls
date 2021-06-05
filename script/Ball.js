@@ -20,6 +20,14 @@ class Ball {
     this.element.id = id;
   }
 
+  setSize(size){
+    this.size = size;
+    this.width = size;
+    this.height = size;
+    this.element.style.width = this.width + "px";
+    this.element.style.height = this.height + "px";
+  }
+
   move() {
     this.x += this.xSpeed;
     this.y += this.ySpeed;

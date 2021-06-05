@@ -63,17 +63,22 @@ class Container {
         }
         requestAnimationFrame(this.move.bind(this));
     }
+
     setColorToAllBalls(color){
         this.inputColor=color;
         for(let i=0; i<this.balls.length;i++){
             this.balls[i].element.style.backgroundColor=color;
-        }
-        
-
+        }  
     }
+
+    increaseBallSize(){
+        for(let i=0; i<this.balls.length;i++){
+            this.balls[i].setSize(this.balls[i].size+5);
+        }
+    }
+
     reset() {
         this.balls = [];
         this.ballsUpdatedEvent(this.balls);
-    }
-   
+    }  
 }
