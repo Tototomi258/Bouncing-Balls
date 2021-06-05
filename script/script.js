@@ -8,7 +8,7 @@ const container = new Container(
   // the callback is invoked every time the balls are updated
   function (balls) {
     counter.innerHTML = balls.length;
-    
+
   }
 );
 
@@ -26,4 +26,8 @@ document.getElementById("inputcolor").addEventListener("change", function(e) {
 
 document.getElementById("ballsizeplus").addEventListener("click", function(e) {
   container.increaseBallSize();
+});
+
+document.getElementById("ballsizeless").addEventListener("click", function(e) {
+  container.decreaseBallSize();
 });

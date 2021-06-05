@@ -11,6 +11,7 @@ class Container {
         this.timeFrame = 1000 / 60;
         this.balls = [];
         this.defaultBallSize = 40;
+        this.newSize=null;
         
 
         this.clickOnMove = false;
@@ -30,7 +31,6 @@ class Container {
             function (x, y, xSpeed, ySpeed) {
             const randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
 
-           
             const ball = new Ball(
                 that.balls.length,
                 x,
@@ -38,7 +38,7 @@ class Container {
                 xSpeed,
                 ySpeed,
                 that.inputColor || randomColor,
-                that.defaultBallSize,
+                that.newSize || that.defaultBallSize,
                 that.element
             );
             that.balls.push(ball);
@@ -67,6 +67,15 @@ class Container {
         for(let i=0; i<this.balls.length;i++){
             this.balls[i].setSize(this.balls[i].size+5);
         }
+        this.newSize=this.balls[0].size;
+        
+    }
+    decreaseBallSize(){
+        for(let i=0; i<this.balls.length;i++){
+            this.balls[i].setSize(this.balls[i].size-5);
+        }
+        this.newSize=this.balls[0].size;
+        
     }
 
     reset() {
