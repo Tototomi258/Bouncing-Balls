@@ -11,7 +11,7 @@
 - [ ] the ball movement should have some physicality (wight, gravity, speed)
 - [ ] it should be possible to 'freeze' and 'resume' the animation
 - [ ] the user should be able to choose the 'skin' of the balls, colors, images, etc
-- [ ] the user should be able to make the balls bigger or smaller with keyboard shortcuts
+- [x] the user should be able to make the balls bigger or smaller with keyboard shortcuts
 and onscreen buttons
 - [ ] the user should be able to remove balls (e.g. by clicking on them or on a button)
 - [ ] the user should be able to to increase/decrease the speed of balls with keyboard

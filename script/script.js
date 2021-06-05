@@ -31,3 +31,12 @@ document.getElementById("ballsizeplus").addEventListener("click", function(e) {
 document.getElementById("ballsizeless").addEventListener("click", function(e) {
   container.decreaseBallSize();
 });
+
+document.addEventListener("keydown", function(e) {
+  if(e.key=="ArrowUp"){
+  container.increaseBallSize();
+  }
+  if(e.key=="ArrowDown"){
+    container.decreaseBallSize();
+    }
+});
