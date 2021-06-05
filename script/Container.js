@@ -78,6 +78,17 @@ class Container {
         
     }
 
+    increaseBallsSpeed(){
+        for(let i=0; i<this.balls.length;i++){
+            this.balls[i].increaseSpeed();
+        } 
+    }
+
+    decreaseBallsSpeed(){
+        for(let i=0; i<this.balls.length;i++){
+            this.balls[i].decreaseSpeed();
+        } 
+    }
     reset() {
         this.balls = [];
         this.ballsUpdatedEvent(this.balls);

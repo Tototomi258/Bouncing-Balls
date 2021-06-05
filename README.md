@@ -14,7 +14,7 @@
 - [x] the user should be able to make the balls bigger or smaller with keyboard shortcuts
 and onscreen buttons
 - [ ] the user should be able to remove balls (e.g. by clicking on them or on a button)
-- [ ] the user should be able to to increase/decrease the speed of balls with keyboard
+- [x] the user should be able to to increase/decrease the speed of balls with keyboard
 shortcuts and onscreen buttons
 - [x] the page should be page responsive, meaning that when the user changes the size of the
 page, the balls never go out of their container and all page controls are repositioned to fit
