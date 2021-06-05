@@ -1,21 +1,13 @@
+// we describe a class that represents and manages the animation area
 class Container {
-    constructor(element, height, width, ballsUpdatedEvent) {
+    constructor(
+        element, // this represents an HTMLElement (the animation area)
+        ballsUpdatedEvent // this function is invoked every time the balls are updated
+        ) {
         const that = this;
 
         this.element = element;
-        this.width = width;
-        this.height = height;
-        this.element.style.width = width;
-        this.element.style.height = height;
         this.inputColor=null;
-        this.moved = false;
-        this.oldX = 0;
-        this.oldY = 0;
-        this.oldTime = 0;
-        this.totalTime = 0;
-
-        this.getTimeReq;
-
         this.timeFrame = 1000 / 60;
         this.balls = [];
         this.defaultBallSize = 40;

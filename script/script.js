@@ -1,13 +1,20 @@
+// init counter value on HTML
 counter.innerHTML = 0; 
 
+// init container that represents the animation area
 const container = new Container(
   document.getElementById("container"),
-  document.getElementById("container").offsetHeight,
-  document.getElementById("container").offsetWidth,
-  (balls) => {
+
+  // the callback is invoked every time the balls are updated
+  function (balls) {
     counter.innerHTML = balls.length;
+    
   }
 );
+
+
+// TODO implements a class to manage the following dashboard logics
+
 
 document.getElementById("reset").addEventListener("click", function(balls) {
   container.reset();
