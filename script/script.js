@@ -8,13 +8,10 @@ const container = new Container(
   // the callback is invoked every time the balls are updated
   function (balls) {
     counter.innerHTML = balls.length;
-
   }
 );
 
-
 // TODO implements a class to manage the following dashboard logics
-
 
 document.getElementById("reset").addEventListener("click", function (balls) {
   container.reset();
@@ -22,6 +19,10 @@ document.getElementById("reset").addEventListener("click", function (balls) {
 
 document.getElementById("inputcolor").addEventListener("change", function (e) {
   container.setColorToAllBalls(e.target.value);
+});
+
+document.getElementById("gravity").addEventListener("change", function (e) {
+  container.setGravityToAllBalls(e.target.value);
 });
 
 document.getElementById("ballsizeplus").addEventListener("click", function (e) {
@@ -56,4 +57,3 @@ document.addEventListener("keydown", function (e) {
     container.decreaseBallsSpeed();
   }
 });
-
