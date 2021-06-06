@@ -55,9 +55,9 @@ class Container {
     //   this.element.appendChild(this.balls[index].element);
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].move();
-      this.element.appendChild(this.balls[i].element);
+    for (const ball of this.balls) {
+      ball.move();
+      this.element.appendChild(ball.element);
     }
     requestAnimationFrame(this.move.bind(this));
   }
@@ -68,8 +68,8 @@ class Container {
     //   this.balls[i].element.style.backgroundColor = color;
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].element.style.backgroundColor = color;
+    for (const ball of this.balls) {
+      ball.element.style.backgroundColor = color;
     }
   }
 
@@ -78,8 +78,8 @@ class Container {
     //   this.balls[i].setSize(this.balls[i].size + 5);
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].setSize(this.balls[i].size + 5);
+    for (const ball of this.balls) {
+      ball.setSize(ball.size + 5);
     }
     this.newSize = this.balls[0].size;
   }
@@ -88,8 +88,8 @@ class Container {
     //   this.balls[i].setSize(this.balls[i].size - 5);
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].setSize(this.balls[i].size - 5);
+    for (const ball of this.balls) {
+      ball.setSize(ball.size - 5);
     }
     this.newSize = this.balls[0].size;
   }
@@ -99,8 +99,8 @@ class Container {
     //   this.balls[i].increaseSpeed();
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].increaseSpeed();
+    for (const ball of this.balls) {
+      ball.increaseSpeed();
     }
   }
 
@@ -109,8 +109,8 @@ class Container {
     //   this.balls[i].decreaseSpeed();
     // }
 
-    for (const i of this.balls) {
-      this.balls[i].decreaseSpeed();
+    for (const ball of this.balls) {
+      ball.decreaseSpeed();
     }
   }
   reset() {
