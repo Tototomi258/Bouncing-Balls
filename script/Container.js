@@ -29,7 +29,7 @@ class Container {
        * @param {*} xSpeed
        * @param {*} ySpeed
        */
-      function (x, y, xSpeed, ySpeed) {
+      function (x, y, xSpeed, ySpeed, yPosition) {
         const randomColor =
           "#" + Math.floor(Math.random() * 16777215).toString(16);
 
@@ -39,6 +39,7 @@ class Container {
           y,
           xSpeed,
           ySpeed,
+          yPosition,
           that.inputColor || randomColor,
           that.newSize || that.defaultBallSize,
           that.newGravity || that.defaultGravity

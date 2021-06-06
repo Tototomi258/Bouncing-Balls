@@ -1,9 +1,10 @@
 class Ball {
-  constructor(id, x, y, xSpeed, ySpeed, color, size, gravity) {
+  constructor(id, x, y, xSpeed, ySpeed, yPosition, color, size, gravity) {
     this.x = x;
     this.y = y;
     this.xSpeed = xSpeed;
     this.ySpeed = ySpeed;
+    this.yPosition = yPosition;
     this.size = size;
     this.width = size;
     this.height = size;
@@ -43,8 +44,8 @@ class Ball {
   move() {
     this.x += this.xSpeed;
 
-    this.ySpeed += this.gravity / 2;
-    this.y += this.ySpeed;
+    this.yPosition = this.yPosition + -this.ySpeed + this.gravity / 2;
+    this.y += this.yPosition;
     this.changeDirectionIfNecessary(this.x, this.y);
 
     this.element.style.left = this.x + "px";
@@ -65,7 +66,8 @@ class Ball {
     }
     if (y < 0 || y > this.container.offsetHeight - this.size) {
       // if outside of container invert the direction
-      this.ySpeed = -this.ySpeed + this.gravity / 2;
+      this.ySpeed = -this.ySpeed;
+      this.yPosition = -this.yPosition;
 
       // if outside of container put the ball inside again
       if (y < 0) {

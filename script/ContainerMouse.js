@@ -25,15 +25,18 @@ class ContainerMouse {
 
       let xSpeed;
       let ySpeed;
+      let yPosition;
+
       that.totalTime = that.oldTime;
       xSpeed = (e.pageX - that.oldX) / that.totalTime;
+      yPosition = e.pageY - that.oldY;
       ySpeed = (e.pageY - that.oldY) / that.totalTime;
 
       const containerRect = e.target.getBoundingClientRect();
       const x = e.clientX - containerRect.left - that.defaultBallSize / 2; //x position within the element.
       const y = e.clientY - containerRect.top - that.defaultBallSize / 2; //y position within the element.
 
-      onClick(x, y, xSpeed, ySpeed);
+      onClick(x, y, xSpeed, ySpeed, yPosition);
     });
 
     // TODO: add eventLister to prevent propagation to the click of the ball
