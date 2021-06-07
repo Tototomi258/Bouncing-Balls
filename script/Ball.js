@@ -1,5 +1,5 @@
 class Ball {
-  constructor(id, x, y, xSpeed, ySpeed, color, size, container) {
+  constructor(id, x, y, xSpeed, ySpeed, color, size) {
     this.x = x;
     this.y = y;
     this.xSpeed = xSpeed;
@@ -8,7 +8,7 @@ class Ball {
     this.width = size;
     this.height = size;
 
-    this.container = container;
+    this.container = container.element;
 
     this.element = document.createElement("div");
     this.element.style.backgroundColor = color;
@@ -18,6 +18,7 @@ class Ball {
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
     this.element.id = id;
+    pause=false;
   }
 
   setSize(size) {
@@ -29,18 +30,31 @@ class Ball {
   }
 
   decreaseSpeed() {
+    if(this.xSpeed>0.009 || this.ySpeed>0.009){
     this.xSpeed = this.xSpeed - (this.xSpeed * 0.1);
     this.ySpeed = this.ySpeed - (this.ySpeed * 0.1);
+    }
   }
 
   increaseSpeed() {
+
     this.xSpeed = this.xSpeed + (this.xSpeed * 0.1);
     this.ySpeed = this.ySpeed + (this.ySpeed * 0.1);
   }
 
+  pause() {
+    pause=true;
+  }
+
+  play() {
+    pause=false;
+  }
+
   move() {
+    if(pause==false){
     this.x += this.xSpeed;
     this.y += this.ySpeed;
+    }
     this.changeDirectionIfNecessary(this.x, this.y);
 
     this.element.style.left = this.x + "px";
