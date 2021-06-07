@@ -1,5 +1,15 @@
 class Ball {
-  constructor(id, x, y, xSpeed, ySpeed, color, size, container) {
+  constructor(id,
+    x,
+    y,
+    xSpeed,
+    ySpeed,
+    color,
+    size,
+    container,
+    onClick // this function is called up every time a click on the ball is detected
+  ) {
+    const that = this;
     this.x = x;
     this.y = y;
     this.xSpeed = xSpeed;
@@ -17,7 +27,22 @@ class Ball {
     this.element.className += "ball";
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
-    this.element.id = id;
+    this.element.id = "ball-" + id;
+    this.clicked = false;
+
+    this.element.addEventListener("mousedown", function (e) {
+      e.stopPropagation();
+      that.clicked = true;
+
+    });
+
+    this.element.addEventListener("mouseup", function (e) {
+      e.stopPropagation();
+      if (that.clicked) {
+        onClick(that);
+      }
+      that.clicked = false;
+    });
   }
 
   setSize(size) {

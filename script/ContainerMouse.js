@@ -9,6 +9,7 @@ class ContainerMouse {
         this.defaultBallSize = defaultBallSize;
         // Check for mousdown and change value of variable "moved" to false
         element.addEventListener("mousedown", function (e) {
+
             that.clickOnMove = false;
             that.oldX = e.pageX;
             that.oldY = e.pageY;
@@ -54,10 +55,14 @@ class ContainerMouse {
             onClick(x, y, xSpeed, ySpeed);
         });
 
-        // TODO: add eventLister to prevent propagation to the click of the ball
-
-        //requestAnimationFrame (this.move.bind(this));
     }
 
+    // TODO: add eventLister to prevent propagation to the click of the ball
+    //document.querySelector('.ball').addEventListener("click", function(e){
 
+    //})
+
+    //requestAnimationFrame (this.move.bind(this));
 }
+
+
