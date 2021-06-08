@@ -71,7 +71,7 @@ class Ball {
       if (y < 0) {
         this.y = -this.y;
       } else {
-        this.y -= 2 * (-this.container.offsetHeight + this.size + this.y);
+        this.y = this.container.offsetHeight - this.size;
       }
     }
   }
