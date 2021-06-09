@@ -79,14 +79,18 @@ class Container {
 
     increaseBallSize() {
         for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].setSize(this.balls[i].size + 5);
+            if (this.balls[i].size <= 195) {
+                this.balls[i].setSize(this.balls[i].size + 5);
+            }
         }
         this.newSize = this.balls[0].size;
 
     }
     decreaseBallSize() {
         for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].setSize(this.balls[i].size - 5);
+            if (this.balls[i].size > 5) {
+                this.balls[i].setSize(this.balls[i].size - 5);
+            }
         }
         this.newSize = this.balls[0].size;
 
@@ -106,5 +110,17 @@ class Container {
     reset() {
         this.balls = [];
         this.ballsUpdatedEvent(this.balls);
+    }
+
+    pauseBall() {
+        for (let i = 0; i < this.balls.length; i++) {
+            this.balls[i].pause();
+        }
+    }
+
+    playBall() {
+        for (let i = 0; i < this.balls.length; i++) {
+            this.balls[i].play();
+        }
     }
 }

@@ -8,7 +8,6 @@ const container = new Container(
   // the callback is invoked every time the balls are updated
   function (balls) {
     counter.innerHTML = balls.length;
-
   }
 );
 
@@ -38,6 +37,14 @@ document.getElementById("speedplus").addEventListener("click", function (e) {
 
 document.getElementById("speedless").addEventListener("click", function (e) {
   container.decreaseBallsSpeed();
+});
+
+document.getElementById("pause").addEventListener("click", function (balls) {
+  container.pauseBall();
+});
+
+document.getElementById("play").addEventListener("click", function (balls) {
+  container.pauseBall();
 });
 
 document.addEventListener("keydown", function (e) {
