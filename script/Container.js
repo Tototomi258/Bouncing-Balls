@@ -11,7 +11,8 @@ class Container {
         this.balls = [];
         this.defaultBallSize = 40;
         this.newSize = null;
-
+        this.defaultGravity = 2;
+        this.newGravity = null;
 
         this.clickOnMove = false;
 
@@ -48,8 +49,10 @@ class Container {
                                 that.balls.splice(i, 1);
                                 that.ballsUpdatedEvent(that.balls);
                             }
+
                         }
-                    }
+                    },
+                    that.newGravity || that.defaultGravity,
                 );
                 that.balls.push(ball);
                 that.ballsUpdatedEvent(that.balls);
@@ -67,38 +70,40 @@ class Container {
             this.element.appendChild(this.balls[index].element);
         }
         requestAnimationFrame(this.move.bind(this));
-
     }
 
     setColorToAllBalls(color) {
         this.inputColor = color;
-        for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].element.style.backgroundColor = color;
+
+        for (const ball of this.balls) {
+            ball.element.style.backgroundColor = color;
         }
+    }
+
+    setGravityToAllBalls(gravity) {
+        for (const ball of this.balls) {
+            ball.gravity = gravity;
+        }
+
+        this.newGravity = gravity;
     }
 
     increaseBallSize() {
-        for (let i = 0; i < this.balls.length; i++) {
-            if (this.balls[i].size <= 195) {
-                this.balls[i].setSize(this.balls[i].size + 5);
-            }
+        for (const ball of this.balls) {
+            ball.setSize(ball.size + 5);
         }
         this.newSize = this.balls[0].size;
-
     }
     decreaseBallSize() {
-        for (let i = 0; i < this.balls.length; i++) {
-            if (this.balls[i].size > 5) {
-                this.balls[i].setSize(this.balls[i].size - 5);
-            }
+        for (const ball of this.balls) {
+            ball.setSize(ball.size - 5);
         }
         this.newSize = this.balls[0].size;
-
     }
 
     increaseBallsSpeed() {
-        for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].increaseSpeed();
+        for (const ball of this.balls) {
+            ball.increaseSpeed();
         }
     }
 

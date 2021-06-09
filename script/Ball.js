@@ -7,7 +7,8 @@ class Ball {
     color,
     size,
     container,
-    onClick // this function is called up every time a click on the ball is detected
+    onClick, // this function is called up every time a click on the ball is detected
+    gravity
   ) {
     const that = this;
     this.x = x;
@@ -17,6 +18,8 @@ class Ball {
     this.size = size;
     this.width = size;
     this.height = size;
+
+    this.gravity = gravity;
 
     this.container = container;
 
@@ -78,8 +81,10 @@ class Ball {
   move() {
     if (this.pause == false) {
       this.x += this.xSpeed;
+      this.ySpeed += this.gravity;
       this.y += this.ySpeed;
     }
+
     this.changeDirectionIfNecessary(this.x, this.y);
 
     this.element.style.left = this.x + "px";
@@ -104,7 +109,7 @@ class Ball {
 
       // if outside of container put the ball inside again
       if (y < 0) {
-        this.y = 0;
+        this.y = -this.y;
       } else {
         this.y = this.container.offsetHeight - this.size;
       }

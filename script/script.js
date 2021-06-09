@@ -11,9 +11,7 @@ const container = new Container(
   }
 );
 
-
 // TODO implements a class to manage the following dashboard logics
-
 
 document.getElementById("reset").addEventListener("click", function (balls) {
   container.reset();
@@ -21,6 +19,10 @@ document.getElementById("reset").addEventListener("click", function (balls) {
 
 document.getElementById("inputcolor").addEventListener("change", function (e) {
   container.setColorToAllBalls(e.target.value);
+});
+
+document.getElementById("gravity").addEventListener("change", function (e) {
+  container.setGravityToAllBalls(Number(e.target.value));
 });
 
 document.getElementById("ballsizeplus").addEventListener("click", function (e) {
