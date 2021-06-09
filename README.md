@@ -31,7 +31,7 @@ them from this document.
 - [x] the balls should bounce at the edges of the container
 - [x] scrollbars should not appear when the balls hit the edges of the container
 - [ ] the ball movement should have some physicality (wight, gravity, speed)
-- [ ] it should be possible to 'freeze' and 'resume' the animation
+- [x] it should be possible to 'freeze' and 'resume' the animation
 - [ ] the user should be able to choose the 'skin' of the balls, colors, images, etc
 - [x] the user should be able to make the balls bigger or smaller with keyboard shortcuts
 and onscreen buttons
@@ -45,7 +45,7 @@ the viewport
 
 ## Optional
 - [ ] making the application more game like, for example by adding rules
-- [ ] addling backgrounds and images
+- [x] addling backgrounds and images
 - [ ] adding sounds or music
 - [ ] generate balls of random sizes and colors
 
@@ -56,7 +56,7 @@ When releasing the mouse button the balls return to their original behavior
 - [ ]Bonus 2: Ball trails
 Balls should show shadow trails behind them to show the previous positions they were
 in. Search for "mouse trails" images to understand what this means
-- [ ]Bonus 3: Gravity
+- [x]Bonus 3: Gravity
 Add a slider to adjust gravity and impact the ball movement. You can add other factors
 3
 such as air resistance for example
