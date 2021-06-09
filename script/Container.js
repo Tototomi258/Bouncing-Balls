@@ -59,13 +59,15 @@ class Container {
         requestAnimationFrame(this.move.bind(this));
     }
 
-    move() { // this function generate 
+    move() {
+
         this.element.innerHTML = "";
         for (let index = 0; index < this.balls.length; index++) {
             this.balls[index].move();
             this.element.appendChild(this.balls[index].element);
         }
         requestAnimationFrame(this.move.bind(this));
+
     }
 
     setColorToAllBalls(color) {
