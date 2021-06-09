@@ -3,11 +3,11 @@
     box-sizing:border-box; 
 }
 
-body {
+body{
     margin: 0;
     height: 100%;
     position: sticky;
-    background-image: url(https://img4.goodfon.com/wallpaper/nbig/a/89/background-colorful-balls-fon-shariki-shary-iarkie-tsvetnye.jpg);
+    background-image: url("../img/external-content.duckduckgo.com.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -102,7 +102,6 @@ body {
     cursor: pointer;
 }
 
-
 .ballc {
     height: 25px;
     width: 25px;
@@ -122,7 +121,8 @@ body {
     z-index: 1;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1150px) {
+    
     html::after {
         content: "";
         position: absolute;
