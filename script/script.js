@@ -39,12 +39,12 @@ document.getElementById("speedless").addEventListener("click", function (e) {
   container.decreaseBallsSpeed();
 });
 
-document.getElementById("pause").addEventListener("click", function (balls) {
+document.getElementById("pause").addEventListener("click", function () {
   container.pauseBall();
 });
 
-document.getElementById("play").addEventListener("click", function (balls) {
-  container.pauseBall();
+document.getElementById("play").addEventListener("click", function () {
+  container.playBall();
 });
 
 document.addEventListener("keydown", function (e) {

@@ -18,7 +18,7 @@ class Ball {
     this.width = size;
     this.height = size;
 
-    this.container = container.element;
+    this.container = container;
 
     this.element = document.createElement("div");
     this.element.style.backgroundColor = color;
@@ -29,7 +29,7 @@ class Ball {
     this.element.style.top = this.y + "px";
     this.element.id = "ball-" + id;
     this.clicked = false;
-    pause = false;
+    this.pause = false;
 
     this.element.addEventListener("mousedown", function (e) {
       e.stopPropagation();
@@ -67,16 +67,16 @@ class Ball {
     this.ySpeed = this.ySpeed + (this.ySpeed * 0.1);
   }
 
-  pause() {
-    pause = true;
+  fpause() {
+    this.pause = true;
   }
 
-  play() {
-    pause = false;
+  fplay() {
+    this.pause = false;
   }
 
   move() {
-    if (pause == false) {
+    if (this.pause == false) {
       this.x += this.xSpeed;
       this.y += this.ySpeed;
     }

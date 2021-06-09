@@ -114,13 +114,13 @@ class Container {
 
     pauseBall() {
         for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].pause();
+            this.balls[i].fpause();
         }
     }
 
     playBall() {
         for (let i = 0; i < this.balls.length; i++) {
-            this.balls[i].play();
+            this.balls[i].fplay();
         }
     }
 }
