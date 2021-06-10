@@ -1,5 +1,6 @@
 // init counter value on HTML
-counter.innerHTML = 0;
+let counter = document.querySelector("#counter span");
+counter.textContent = 0;
 
 // init container that represents the animation area
 const container = new Container(
@@ -7,7 +8,7 @@ const container = new Container(
 
   // the callback is invoked every time the balls are updated
   function (balls) {
-    counter.innerHTML = balls.length;
+    counter.textContent = balls.length;
   }
 );
 
