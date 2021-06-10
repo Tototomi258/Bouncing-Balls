@@ -137,7 +137,7 @@ h1::after {
   transform: translateX(-50%);
 }
 
-#musicPlay,#musicPause{
+#musicPlay,#musicPause, #info{
   background-color: #ccddcc;
   border-radius: 50%;
   width: 40px;
@@ -149,6 +149,9 @@ h1::after {
 }
 #musicPause{
   left: 50px;
+}
+#info{
+  top: -45px;
 }
 
 @media (min-width: 1310px) {
