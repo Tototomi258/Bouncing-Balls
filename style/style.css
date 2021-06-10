@@ -1,4 +1,5 @@
 /* TODO: responsive design */
+
 * {
   box-sizing: border-box;
 }
@@ -11,9 +12,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  overflow: hidden;
 }
-
 
 h1 {
   position: absolute;
@@ -48,7 +47,6 @@ h1::after {
   width: 800px;
   height: 450px;
   padding: 1%;
-  border: black solid 2px;
   z-index: 2;
 }
 
@@ -58,6 +56,7 @@ h1::after {
   display: inline-block;
   border-radius: 50%;
   z-index: 1;
+  cursor: pointer;
 }
 
 #dashboard {
@@ -76,7 +75,6 @@ h1::after {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   z-index: 1;
-
 }
 
 #buttons {
@@ -118,12 +116,42 @@ h1::after {
 }
 
 #counter {
-  float: left;
-  z-index: 1;
+  text-align: center;
 }
 
-@media (min-width: 1150px) {
+#counterBtn {
+  background-color: #ccddcc;
+  width: 100px;
+  height: 75px;
+  margin: 5px;
+  border-radius: 10%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+}
 
+#gravity {
+  position: absolute;
+  top: 415px;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#musicPlay,#musicPause{
+  background-color: #ccddcc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: -90px;
+  left: 5px;
+}
+#musicPause{
+  left: 50px;
+}
+
+@media (min-width: 1310px) {
   html::after {
     content: "";
     position: absolute;
@@ -133,13 +161,22 @@ h1::after {
     z-index: -1;
     background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
   }
+  body {
+    overflow: hidden;
+  }
 }
-
 
 @media (max-width: 1200px) {
   #container {
     width: 1000px;
     height: 600px;
+  }
+  #gravity {
+    top: 50px;
+    z-index: 2;
+    top: 565px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -147,6 +184,13 @@ h1::after {
   #container {
     width: 750px;
     height: 450px;
+  }
+  #gravity {
+    position: absolute;
+    top: 420px;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -156,18 +200,35 @@ h1::after {
     height: 250px;
     margin: 10em auto;
   }
-
   h1 {
     top: -190px;
   }
-
   #buttons {
     width: 100%;
   }
-
   #colorchange {
     margin-left: 50%;
     transform: translateX(-50%);
+  }
+  #gravity {
+    top: 225px;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #musicPlay,#musicPause{
+    background-color: #ccddcc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: -150px;
+    left: -1px;
+    z-index: -1;
+  }
+  #musicPause{
+    left: 41px;
   }
 }
 
@@ -175,5 +236,11 @@ h1::after {
   #container {
     width: 300px;
     height: 200px;
+  }
+  #gravity {
+    top: 175px;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

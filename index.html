@@ -14,9 +14,12 @@
 
 <body>
 
-
   <div id="container"></div>
 
+  <div>
+    <button id="musicPlay">🎵</button>
+    <button id="musicPause">🔇</button>
+  </div>
   <div id="dashboard">
     <div id="buttons">
       <button id="ballsizeplus" class="btc">BallSize+</button>
@@ -26,7 +29,10 @@
       <button id="pause" class="btc">Pause</button>
       <button id="play" class="btc">Play</button>
       <button id="reset" class="btc">Reset</button>
-      <div id="counter"></div>
+      <button id="counterBtn">
+        Balls number:  
+        <p id="counter"></p>
+      </button>
 
       <input type="range" name="gravity" id="gravity" min="0" max="4">
     </div>
@@ -38,6 +44,10 @@
     </div>
 
   </div>
+
+  <audio loop id="backgroundMusic">   
+    <source src="sound/Shenyang.mp3"/>   
+  </audio>
 
   <script src="script/Ball.js"></script>
   <script src="script/ContainerMouse.js"></script>

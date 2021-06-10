@@ -67,3 +67,13 @@ document.addEventListener("keydown", function (e) {
 });
 
 
+//music and sound
+const music = document.getElementById("backgroundMusic");   
+const musicButtonPlay = document.getElementById("musicPlay");   
+musicButtonPlay.addEventListener("click", function(){
+  music.play();});
+
+const musicButtonPause = document.getElementById("musicPause");   
+musicButtonPause.addEventListener("click", function(){
+  music.pause();});
+
