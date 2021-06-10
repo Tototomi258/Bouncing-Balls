@@ -22,7 +22,7 @@ document.getElementById("inputcolor").addEventListener("change", function (e) {
 });
 
 document.getElementById("gravity").addEventListener("change", function (e) {
-  container.setGravityToAllBalls(Number(e.target.value));
+  container.newGravity = Number(e.target.value);
 });
 
 document.getElementById("ballsizeplus").addEventListener("click", function (e) {
@@ -65,5 +65,3 @@ document.addEventListener("keydown", function (e) {
     container.decreaseBallsSpeed();
   }
 });
-
-

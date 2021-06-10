@@ -1,5 +1,6 @@
 class Ball {
-  constructor(id,
+  constructor(
+    id,
     x,
     y,
     xSpeed,
@@ -7,8 +8,7 @@ class Ball {
     color,
     size,
     container,
-    onClick, // this function is called up every time a click on the ball is detected
-    gravity
+    onClick // this function is called up every time a click on the ball is detected
   ) {
     const that = this;
     this.x = x;
@@ -18,8 +18,6 @@ class Ball {
     this.size = size;
     this.width = size;
     this.height = size;
-
-    this.gravity = gravity;
 
     this.container = container;
 
@@ -37,7 +35,6 @@ class Ball {
     this.element.addEventListener("mousedown", function (e) {
       e.stopPropagation();
       that.clicked = true;
-
     });
 
     this.element.addEventListener("mouseup", function (e) {
@@ -59,15 +56,14 @@ class Ball {
 
   decreaseSpeed() {
     if (this.xSpeed > 0.009 || this.ySpeed > 0.009) {
-      this.xSpeed = this.xSpeed - (this.xSpeed * 0.1);
-      this.ySpeed = this.ySpeed - (this.ySpeed * 0.1);
+      this.xSpeed = this.xSpeed - this.xSpeed * 0.1;
+      this.ySpeed = this.ySpeed - this.ySpeed * 0.1;
     }
   }
 
   increaseSpeed() {
-
-    this.xSpeed = this.xSpeed + (this.xSpeed * 0.1);
-    this.ySpeed = this.ySpeed + (this.ySpeed * 0.1);
+    this.xSpeed = this.xSpeed + this.xSpeed * 0.1;
+    this.ySpeed = this.ySpeed + this.ySpeed * 0.1;
   }
 
   fpause() {
@@ -78,10 +74,10 @@ class Ball {
     this.pause = false;
   }
 
-  move() {
+  move(gravity) {
     if (this.pause == false) {
       this.x += this.xSpeed;
-      this.ySpeed += this.gravity;
+      this.ySpeed += gravity;
       this.y += this.ySpeed;
     }
 
