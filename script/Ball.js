@@ -27,7 +27,6 @@ class Ball {
     this.element.style.top = this.y + "px";
     this.element.id = "ball-" + id;
     this.clicked = false;
-    this.pause = false;
 
     this.element.addEventListener("mousedown", function (e) {
       e.stopPropagation();
@@ -69,14 +68,6 @@ class Ball {
     if (this.ySpeed < 30 && this.ySpeed > -30) {
       this.ySpeed += this.ySpeed * 0.1;
     }
-  }
-
-  fpause() {
-    this.pause = true;
-  }
-
-  fplay() {
-    this.pause = false;
   }
 
   move(gravity, pause) {

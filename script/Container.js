@@ -118,16 +118,4 @@ class Container {
     this.balls = [];
     this.ballsUpdatedEvent(this.balls);
   }
-
-  pauseBall() {
-    for (let i = 0; i < this.balls.length; i++) {
-      this.balls[i].fpause();
-    }
-  }
-
-  playBall() {
-    for (let i = 0; i < this.balls.length; i++) {
-      this.balls[i].fplay();
-    }
-  }
 }
