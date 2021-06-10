@@ -14,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-
 h1 {
   position: absolute;
   top: -130px;
@@ -48,7 +47,7 @@ h1::after {
   width: 800px;
   height: 450px;
   padding: 1%;
-  border: black solid 2px;
+  outline: black solid 2px;
   z-index: 2;
 }
 
@@ -76,7 +75,6 @@ h1::after {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   z-index: 1;
-
 }
 
 #buttons {
@@ -123,7 +121,6 @@ h1::after {
 }
 
 @media (min-width: 1150px) {
-
   html::after {
     content: "";
     position: absolute;
@@ -134,7 +131,6 @@ h1::after {
     background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
   }
 }
-
 
 @media (max-width: 1200px) {
   #container {
