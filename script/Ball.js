@@ -79,17 +79,17 @@ class Ball {
     this.pause = false;
   }
 
-  move(gravity) {
-    if (this.pause == false) {
+  move(gravity, pause) {
+    if (!pause) {
       this.x += this.xSpeed;
       this.ySpeed += gravity;
       this.y += this.ySpeed;
+
+      this.changeDirectionIfNecessary(this.x, this.y);
+
+      this.element.style.left = this.x + "px";
+      this.element.style.top = this.y + "px";
     }
-
-    this.changeDirectionIfNecessary(this.x, this.y);
-
-    this.element.style.left = this.x + "px";
-    this.element.style.top = this.y + "px";
   }
 
   changeDirectionIfNecessary(x, y) {

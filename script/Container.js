@@ -14,6 +14,8 @@ class Container {
     this.defaultGravity = 2;
     this.newGravity = null;
 
+    this.pause = false;
+
     this.clickOnMove = false;
 
     this.ballsUpdatedEvent = ballsUpdatedEvent;
@@ -63,10 +65,12 @@ class Container {
     this.element.innerHTML = "";
     for (let index = 0; index < this.balls.length; index++) {
       this.balls[index].move(
-        this.newGravity === null ? this.defaultGravity : this.newGravity
+        this.newGravity === null ? this.defaultGravity : this.newGravity,
+        this.pause
       );
       this.element.appendChild(this.balls[index].element);
     }
+
     requestAnimationFrame(this.move.bind(this));
   }
 

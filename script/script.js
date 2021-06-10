@@ -43,11 +43,11 @@ document.getElementById("speedless").addEventListener("click", function (e) {
 });
 
 document.getElementById("pause").addEventListener("click", function () {
-  container.pauseBall();
+  container.pause = true;
 });
 
 document.getElementById("play").addEventListener("click", function () {
-  container.playBall();
+  container.pause = false;
 });
 
 document.addEventListener("keydown", function (e) {
