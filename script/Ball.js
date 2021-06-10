@@ -52,15 +52,23 @@ class Ball {
   }
 
   decreaseSpeed() {
-    if (this.xSpeed > 0.009 || this.ySpeed > 0.009) {
-      this.xSpeed = this.xSpeed - this.xSpeed * 0.1;
-      this.ySpeed = this.ySpeed - this.ySpeed * 0.1;
+    if (!(this.xSpeed < 5 && this.xSpeed > -5)) {
+      this.xSpeed -= this.xSpeed * 0.1;
+    }
+
+    if (!(this.ySpeed < 5 && this.ySpeed > -5)) {
+      this.ySpeed -= this.ySpeed * 0.1;
     }
   }
 
   increaseSpeed() {
-    this.xSpeed = this.xSpeed + this.xSpeed * 0.1;
-    this.ySpeed = this.ySpeed + this.ySpeed * 0.1;
+    if (this.xSpeed < 30 && this.xSpeed > -30) {
+      this.xSpeed += this.xSpeed * 0.1;
+    }
+
+    if (this.ySpeed < 30 && this.ySpeed > -30) {
+      this.ySpeed += this.ySpeed * 0.1;
+    }
   }
 
   fpause() {
