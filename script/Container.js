@@ -40,7 +40,6 @@ class Container {
           ySpeed,
           that.inputColor || randomColor,
           that.newSize || that.defaultBallSize,
-          that.element,
           /**
            * This function get executed when detects a click on ball
            */

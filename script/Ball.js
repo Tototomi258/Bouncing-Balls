@@ -7,7 +7,6 @@ class Ball {
     ySpeed,
     color,
     size,
-    container,
     onClick // this function is called up every time a click on the ball is detected
   ) {
     const that = this;
@@ -18,8 +17,6 @@ class Ball {
     this.size = size;
     this.width = size;
     this.height = size;
-
-    this.container = container;
 
     this.element = document.createElement("div");
     this.element.style.backgroundColor = color;
@@ -88,7 +85,7 @@ class Ball {
   }
 
   changeDirectionIfNecessary(x, y) {
-    if (x < 0 || x > this.container.offsetWidth - this.size) {
+    if (x < 0 || x > container.element.offsetWidth - this.size) {
       // if outside of container invert the direction
       this.xSpeed = -this.xSpeed;
 
@@ -96,10 +93,10 @@ class Ball {
       if (x < 0) {
         this.x = 0;
       } else {
-        this.x = this.container.offsetWidth - this.size;
+        this.x = container.element.offsetWidth - this.size;
       }
     }
-    if (y < 0 || y > this.container.offsetHeight - this.size) {
+    if (y < 0 || y > container.element.offsetHeight - this.size) {
       // if outside of container invert the direction
       this.ySpeed = -this.ySpeed;
 
@@ -107,7 +104,7 @@ class Ball {
       if (y < 0) {
         this.y = -this.y;
       } else {
-        this.y = this.container.offsetHeight - this.size;
+        this.y = container.element.offsetHeight - this.size;
       }
     }
   }
