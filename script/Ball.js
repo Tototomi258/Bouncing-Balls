@@ -15,13 +15,11 @@ class Ball {
     this.xSpeed = xSpeed;
     this.ySpeed = ySpeed;
     this.size = size;
-    this.width = size;
-    this.height = size;
 
     this.element = document.createElement("div");
     this.element.style.backgroundColor = color;
-    this.element.style.width = this.width + "px";
-    this.element.style.height = this.height + "px";
+    this.element.style.width = this.size + "px";
+    this.element.style.height = this.size + "px";
     this.element.className += "ball";
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
@@ -43,11 +41,11 @@ class Ball {
   }
 
   setSize(size) {
-    this.size = size;
-    this.width = size;
-    this.height = size;
-    this.element.style.width = this.width + "px";
-    this.element.style.height = this.height + "px";
+    if (this.size < 80 && this.size > 20) {
+      this.size = size;
+      this.element.style.width = this.size + "px";
+      this.element.style.height = this.size + "px";
+    }
   }
 
   decreaseSpeed() {
