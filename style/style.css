@@ -8,9 +8,22 @@
 ***
 */
 
+/* TODO: fix style */
+
 /*This rule apply border-box to every element in the web page*/
 * {
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
 }
 
 /*background image*/
@@ -18,20 +31,20 @@ body {
   margin: 0;
   height: 100%;
   position: sticky;
-  background-image: url("../img/external-content.duckduckgo.com.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../media/img/bg.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
 /*h1 style */
 
 h1 {
-  position: absolute;
-  top: -130px;
+  position: relative;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px;
   text-align: center;
   color: white;
   letter-spacing: 2px;
@@ -40,7 +53,7 @@ h1 {
 h1::after {
   content: "Game";
   position: absolute;
-  bottom: -30px;
+  bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
   background: white;
@@ -55,11 +68,12 @@ h1::after {
 #container {
   position: relative;
   background-color: #ccddcc;
-  margin: 6em auto;
+  margin: 3em auto 1em auto;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  width: 800px;
-  height: 450px;
+  width: 90vw;
+  height: 65vh;
   padding: 1%;
+  outline: black solid 2px;
   z-index: 2;
 }
 
@@ -68,6 +82,7 @@ h1::after {
   background-color: black;
   position: absolute;
   display: inline-block;
+  border: 0.5px solid black;
   border-radius: 50%;
   z-index: 1;
   cursor: pointer;
@@ -75,34 +90,41 @@ h1::after {
 
 /*This rule set the position and dimension of the dashboard*/
 #dashboard {
-  width: 100%;
-  height: 120px;
-  margin-top: -80px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*This rules set the buttons style*/
 .btc {
   background-color: #ccddcc;
-  width: 100px;
-  height: 60px;
-  margin: 5px;
+  height: 100%;
+  padding: 0 2em;
   border-radius: 10%;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   z-index: 1;
 }
 
-#buttons {
-  float: left;
-  width: 70%;
+/* style of counter */
+#counter {
+  background-color: #ccddcc;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0 2em;
+  border-radius: 10%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
 /*style of the colour palette*/
 #colorchange {
-  float: left;
-  width: 180px;
+  padding: 0.5em;
   background-color: #ccddcc;
   border: black solid 1px;
   border-radius: 8%;
@@ -121,98 +143,36 @@ h1::after {
   cursor: pointer;
 }
 
-
-/*
-si può eliminare ??
-
-.ballc {
-  height: 25px;
-  width: 25px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  z-index: 1;
-}
-*/
-
-/*counter style*/
-#counter {
-  text-align: center;
-}
-
-#counterBtn {
-  background-color: #ccddcc;
-  width: 100px;
-  height: 75px;
-  margin: 5px;
-  border-radius: 10%;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  cursor: not-allowed;
-}
-
-/*gravity slider style and position*/
 #gravity {
   position: absolute;
-  top: 415px;
+  top: 74vh;
   z-index: 2;
   left: 50%;
   transform: translateX(-50%);
 }
 
 /*music and info buttons style and position*/
-#musicPlay,#musicPause, #info{
+#musicPlay,
+#musicPause,
+#info {
   background-color: #ccddcc;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: -90px;
+  top: -20px;
   left: 5px;
 }
-#musicPause{
+#musicPause {
   left: 50px;
 }
-#info{
-  top: -45px;
+#info {
+  top: 25px;
 }
 
-/**
-* MEDIA QUERIES
-*/
-
-/* media that applies to screen with min width = 1310px */
-@media (min-width: 1310px) {
-
-  /*This rule set a linear gradient to the background*/
-  html::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-  }
-
-  /*This rule hide the overflow*/
-  body {
-    overflow: hidden;
-  }
-}
-
-/* media that applies to screen with max width = 1200px */
 @media (max-width: 1200px) {
-
-  /*This rule change the size of the container*/
-  #container {
-    width: 1000px;
-    height: 600px;
-  }
-
-  /*This rule change the position of the gravity slider*/ 
+  /*This rule change the position of the gravity slider*/
   #gravity {
     top: 50px;
     z-index: 2;
@@ -224,13 +184,6 @@ si può eliminare ??
 
 /* media that applies to screen with max width = 1024px */
 @media (max-width: 1024px) {
-
-  /*This rule change the size of the container*/
-  #container {
-    width: 750px;
-    height: 450px;
-  }
-
   /*This rule change the position of the gravity slider*/
   #gravity {
     position: absolute;
@@ -243,73 +196,8 @@ si può eliminare ??
 
 /* media that applies to screen with max width = 768px */
 @media (max-width: 768px) {
-
-  /*This rule change the size of the container*/
-  #container {
-    width: 450px;
-    height: 250px;
-    margin: 10em auto;
-  }
-
-  /*This rule change the position of the title*/
-  h1 {
-    top: -190px;
-  }
-
   /*This rule keep the buttons in the middle of the page*/
   #buttons {
     width: 100%;
-  }
-
-  /*This rule keep the palette in the middle of the page*/
-  #colorchange {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /*This rule change the position of the gravity slider*/
-  #gravity {
-    top: 225px;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-/*music and info buttons style and position with smaller screen*/
-  #musicPlay,#musicPause, #info{
-    background-color: #ccddcc;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: -105px;
-    z-index: -1;
-  }
-
-  #musicPause{
-    left: 50px;
-  }
-  
-  #info{
-    top: -150px;
-  }
-}
-
-/* media that applies to screen with max width = 480px */
-@media (max-width: 480px) {
-
-  /*This rule change the size of the container*/
-  #container {
-    width: 300px;
-    height: 200px;
-  }
-
-  /*This rule change the position of the gravity slider*/
-  #gravity {
-    top: 175px;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }

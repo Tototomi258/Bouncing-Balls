@@ -1,5 +1,6 @@
 // init counter value on HTML
-counter.innerHTML = 0;
+let counter = document.querySelector("#counter span");
+counter.textContent = 0;
 
 // init container that represents the animation area
 const container = new Container(
@@ -7,7 +8,7 @@ const container = new Container(
 
   // the callback is invoked every time the balls are updated
   function (balls) {
-    counter.innerHTML = balls.length;
+    counter.textContent = balls.length;
   }
 );
 
@@ -22,7 +23,7 @@ document.getElementById("inputcolor").addEventListener("change", function (e) {
 });
 
 document.getElementById("gravity").addEventListener("change", function (e) {
-  container.setGravityToAllBalls(Number(e.target.value));
+  container.newGravity = Number(e.target.value);
 });
 
 document.getElementById("ballsizeplus").addEventListener("click", function (e) {
@@ -42,11 +43,11 @@ document.getElementById("speedless").addEventListener("click", function (e) {
 });
 
 document.getElementById("pause").addEventListener("click", function () {
-  container.pauseBall();
+  container.pause = true;
 });
 
 document.getElementById("play").addEventListener("click", function () {
-  container.playBall();
+  container.pause = false;
 });
 
 document.addEventListener("keydown", function (e) {
@@ -66,7 +67,6 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-
 // music play
 const music = document.getElementById("backgroundMusic");
 const musicButtonPlay = document.getElementById("musicPlay");
@@ -80,8 +80,11 @@ musicButtonPause.addEventListener("click", function () {
   music.pause();
 });
 
-// alert info 
-var info = document.getElementById("info");
+// alert info
+let info = document.getElementById("info");
+// TODO: change format
 info.addEventListener("click", function () {
-  window.alert("\t\t\tBouncing Balls\n\n\tGame Info:\n\n- Use \"Speed +\" and \"Speed -\" to increase and decrease the balls speeds\n\n- Use \"BallSize +\" and \"BallSize -\" to increase and decrease the balls sizes\n\n- Use \"Pause\" and \"Play\" to stop and resume the game\n\n- Use \"Reset\" to delete all the balls in the container\n\n- Use the palette to change the colours of the balls\n\n- Use the slider to adjust the gravity of the container\n\n- Use \"🎵\" and \"🔇\" to play and pause the music");
+  window.alert(
+    '\t\t\tBouncing Balls\n\n\tGame Info: \n\n- Click or drag on the container to create a ball\n\n- Use "Speed +" and "Speed -" to increase and decrease the balls speeds\n\n- Use "BallSize +" and "BallSize -" to increase and decrease the balls sizes\n\n- Use "Pause" and "Play" to stop and resume the game\n\n- Use "Reset" to delete all the balls in the container\n\n- Use the palette to change the colours of the balls\n\n- Use the slider to adjust the gravity of the container\n\n- Use "🎵" and "🔇" to play and pause the music'
+  );
 });
