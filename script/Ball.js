@@ -1,14 +1,13 @@
 class Ball {
-  constructor(id,
+  constructor(
+    id,
     x,
     y,
     xSpeed,
     ySpeed,
     color,
     size,
-    container,
-    onClick, // this function is called up every time a click on the ball is detected
-    gravity
+    onClick // this function is called up every time a click on the ball is detected
   ) {
     const that = this;
     this.x = x;
@@ -16,28 +15,20 @@ class Ball {
     this.xSpeed = xSpeed;
     this.ySpeed = ySpeed;
     this.size = size;
-    this.width = size;
-    this.height = size;
-
-    this.gravity = gravity;
-
-    this.container = container;
 
     this.element = document.createElement("div");
     this.element.style.backgroundColor = color;
-    this.element.style.width = this.width + "px";
-    this.element.style.height = this.height + "px";
+    this.element.style.width = this.size + "px";
+    this.element.style.height = this.size + "px";
     this.element.className += "ball";
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
     this.element.id = "ball-" + id;
     this.clicked = false;
-    this.pause = false;
 
     this.element.addEventListener("mousedown", function (e) {
       e.stopPropagation();
       that.clicked = true;
-
     });
 
     this.element.addEventListener("mouseup", function (e) {
@@ -50,49 +41,48 @@ class Ball {
   }
 
   setSize(size) {
-    this.size = size;
-    this.width = size;
-    this.height = size;
-    this.element.style.width = this.width + "px";
-    this.element.style.height = this.height + "px";
+    if (size <= 80 && size >= 10) {
+      this.size = size;
+      this.element.style.width = this.size + "px";
+      this.element.style.height = this.size + "px";
+    }
   }
 
   decreaseSpeed() {
-    if (this.xSpeed > 0.009 || this.ySpeed > 0.009) {
-      this.xSpeed = this.xSpeed - (this.xSpeed * 0.1);
-      this.ySpeed = this.ySpeed - (this.ySpeed * 0.1);
+    if (!(this.xSpeed < 1 && this.xSpeed > -1)) {
+      this.xSpeed -= this.xSpeed * 0.1;
+    }
+
+    if (!(this.ySpeed < 1 && this.ySpeed > -1)) {
+      this.ySpeed -= this.ySpeed * 0.1;
     }
   }
 
   increaseSpeed() {
-
-    this.xSpeed = this.xSpeed + (this.xSpeed * 0.1);
-    this.ySpeed = this.ySpeed + (this.ySpeed * 0.1);
-  }
-
-  fpause() {
-    this.pause = true;
-  }
-
-  fplay() {
-    this.pause = false;
-  }
-
-  move() {
-    if (this.pause == false) {
-      this.x += this.xSpeed;
-      this.ySpeed += this.gravity;
-      this.y += this.ySpeed;
+    if (this.xSpeed < 20 && this.xSpeed > -20) {
+      this.xSpeed += this.xSpeed * 0.1;
     }
 
-    this.changeDirectionIfNecessary(this.x, this.y);
+    if (this.ySpeed < 20 && this.ySpeed > -20) {
+      this.ySpeed += this.ySpeed * 0.1;
+    }
+  }
 
-    this.element.style.left = this.x + "px";
-    this.element.style.top = this.y + "px";
+  move(gravity, pause) {
+    if (!pause) {
+      this.x += this.xSpeed;
+      this.ySpeed += gravity;
+      this.y += this.ySpeed;
+
+      this.changeDirectionIfNecessary(this.x, this.y);
+
+      this.element.style.left = this.x + "px";
+      this.element.style.top = this.y + "px";
+    }
   }
 
   changeDirectionIfNecessary(x, y) {
-    if (x < 0 || x > this.container.offsetWidth - this.size) {
+    if (x < 0 || x > container.element.offsetWidth - this.size) {
       // if outside of container invert the direction
       this.xSpeed = -this.xSpeed;
 
@@ -100,10 +90,10 @@ class Ball {
       if (x < 0) {
         this.x = 0;
       } else {
-        this.x = this.container.offsetWidth - this.size;
+        this.x = container.element.offsetWidth - this.size;
       }
     }
-    if (y < 0 || y > this.container.offsetHeight - this.size) {
+    if (y < 0 || y > container.element.offsetHeight - this.size) {
       // if outside of container invert the direction
       this.ySpeed = -this.ySpeed;
 
@@ -111,7 +101,7 @@ class Ball {
       if (y < 0) {
         this.y = -this.y;
       } else {
-        this.y = this.container.offsetHeight - this.size;
+        this.y = container.element.offsetHeight - this.size;
       }
     }
   }
