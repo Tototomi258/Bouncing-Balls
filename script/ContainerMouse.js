@@ -17,7 +17,7 @@ class ContainerMouse {
       this.moved = false;
 
       function checkFrames() {
-        that.oldTime++;
+        that.oldTime += 2;
         that.getTimeReq = requestAnimationFrame(checkFrames);
       }
 
@@ -48,11 +48,6 @@ class ContainerMouse {
       const y = that.oldY - containerRect.top - that.defaultBallSize / 2; //y position within the element.
 
       onClick(x, y, xSpeed, ySpeed);
-
-      const genSpeed = () => {
-        const num = Math.floor(Math.random() * 4) + 1; // this will get a number between 1 and 99;
-        return num * (Math.round(Math.random()) ? 1 : -1);
-      };
     });
 
     // TODO: add eventLister to prevent propagation to the click of the ball

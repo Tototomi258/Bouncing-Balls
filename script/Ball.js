@@ -51,21 +51,21 @@ class Ball {
   }
 
   decreaseSpeed() {
-    if (!(this.xSpeed < 5 && this.xSpeed > -5)) {
+    if (!(this.xSpeed < 1 && this.xSpeed > -1)) {
       this.xSpeed -= this.xSpeed * 0.1;
     }
 
-    if (!(this.ySpeed < 5 && this.ySpeed > -5)) {
+    if (!(this.ySpeed < 1 && this.ySpeed > -1)) {
       this.ySpeed -= this.ySpeed * 0.1;
     }
   }
 
   increaseSpeed() {
-    if (this.xSpeed < 30 && this.xSpeed > -30) {
+    if (this.xSpeed < 20 && this.xSpeed > -20) {
       this.xSpeed += this.xSpeed * 0.1;
     }
 
-    if (this.ySpeed < 30 && this.ySpeed > -30) {
+    if (this.ySpeed < 20 && this.ySpeed > -20) {
       this.ySpeed += this.ySpeed * 0.1;
     }
   }
