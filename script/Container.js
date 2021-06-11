@@ -11,7 +11,7 @@ class Container {
     this.balls = [];
     this.defaultBallSize = 40;
     this.newSize = null;
-    this.defaultGravity = 2;
+    this.defaultGravity = 0;
     this.newGravity = null;
 
     this.pause = false;
