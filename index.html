@@ -10,11 +10,11 @@
 
 
 
-<h1>Bouncing Balls</h1>
+
 
 <body>
   <!-- page content -->
-
+<h1>Bouncing Balls</h1>
   <!-- balls container -->
   <div id="container"></div>
 
@@ -36,7 +36,7 @@
       <button id="reset" class="btc">Reset</button>
       <button id="counterBtn">
         Balls number:  
-        <p id="counter"></p>
+        <span id="counter"></span>
       </button>
       <!-- slider to adjust the balls gravity -->
       <input type="range" name="gravity" id="gravity" min="0" max="4">
@@ -44,7 +44,7 @@
     <!-- palette to change balls colour -->
     <div id="colorchange">
       <p>Change balls color</p>
-      <input type="color" id="inputcolor" name="inputcolor"></input>
+      <input type="color" id="inputcolor" name="inputcolor">
       <label for="inputcolor" aria-label="Select color of balls" class="sr-only"></label>
     </div>
 
