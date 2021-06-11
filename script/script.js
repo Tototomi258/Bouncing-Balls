@@ -12,8 +12,6 @@ const container = new Container(
   }
 );
 
-// TODO implements a class to manage the following dashboard logics
-
 document.getElementById("reset").addEventListener("click", function (balls) {
   container.reset();
 });

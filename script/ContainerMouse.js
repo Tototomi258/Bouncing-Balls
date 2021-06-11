@@ -49,7 +49,5 @@ class ContainerMouse {
 
       onClick(x, y, xSpeed, ySpeed);
     });
-
-    // TODO: add eventLister to prevent propagation to the click of the ball
   }
 }
