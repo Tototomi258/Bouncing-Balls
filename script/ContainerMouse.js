@@ -14,7 +14,7 @@ class ContainerMouse {
       that.oldY = e.pageY;
       that.oldTime = 0;
 
-      this.moved = false;
+      that.moved = false;
 
       function checkFrames() {
         that.oldTime += 2;
@@ -25,7 +25,7 @@ class ContainerMouse {
     });
 
     element.addEventListener("mousemove", function (e) {
-      this.moved = true;
+      that.moved = true;
     });
 
     element.addEventListener("mouseup", function (e) {
@@ -34,7 +34,7 @@ class ContainerMouse {
       let xSpeed;
       let ySpeed;
 
-      if (!this.moved) {
+      if (!that.moved) {
         xSpeed = Math.floor(Math.random() * 9) - 5;
         ySpeed = Math.floor(Math.random() * 9) - 5;
       } else {
