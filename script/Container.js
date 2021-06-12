@@ -115,8 +115,8 @@ class Container {
     }
   }
   reset() {
-    // TODO: reset colors
     this.balls = [];
+    this.inputColor = null;
     this.ballsUpdatedEvent(this.balls);
   }
 }

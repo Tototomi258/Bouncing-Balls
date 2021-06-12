@@ -43,9 +43,10 @@ class ContainerMouse {
         ySpeed = (e.pageY - that.oldY) / that.totalTime;
       }
 
+
       const containerRect = e.target.getBoundingClientRect();
-      const x = that.oldX - containerRect.left - that.defaultBallSize / 2; //x position within the element.
-      const y = that.oldY - containerRect.top - that.defaultBallSize / 2; //y position within the element.
+      const x = e.pageX - containerRect.left - that.defaultBallSize / 2; //x position within the element. //that.oldX
+      const y = e.pageY - containerRect.top - that.defaultBallSize / 2; //y position within the element.  //that.oldY
 
       onClick(x, y, xSpeed, ySpeed);
     });
