@@ -1,83 +1,64 @@
-/*
-***
-* STYLE SHEET PROJECT BOUNCING BALLS
-***
-* This document includes all the 
-* css rules and media queries 
-* applied to the web page
-***
-*/
-
-/* TODO: fix style */
-
-/*This rule apply border-box to every element in the web page*/
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-html::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-}
-
-/*background image*/
 body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-areas:
+    "menu menu header header header header header header header header . ."
+    "menu menu header header header header header header header header . ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". container container container container container container container container container container ."
+    ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+    ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard .";
+  justify-items: stretch;
+  column-gap: 10px;
+  row-gap: 20px;
+  height: 100vh;
   margin: 0;
-  height: 100%;
-  position: sticky;
-  background: url("../media/img/bg.jpeg") no-repeat center center fixed;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
+    url("../media/img/bg.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-/*h1 style */
+/* HEADER */
 
-h1 {
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+#title {
+  grid-area: header;
   text-align: center;
-  color: white;
-  letter-spacing: 2px;
 }
 
-h1::after {
-  content: "Game";
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
+#title h1 {
+  color: white;
+  letter-spacing: 2px;
+  margin: 0.2em 0 0.6em 0;
+}
+
+#title span {
   background: white;
   color: #212121;
-  font-size: 12px;
-  padding: 7px 15px;
+  padding: 0.5em 1em;
   outline: 1px solid white;
   outline-offset: 4px;
 }
 
-/*container style*/
+/* MAIN CONTAINER */
+
 #container {
-  position: relative;
+  grid-area: container;
   background-color: #ccddcc;
-  margin: 3em auto 1em auto;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  width: 90vw;
-  height: 65vh;
-  padding: 1%;
   outline: black solid 2px;
   z-index: 2;
 }
 
-/*balls style*/
 .ball {
   background-color: black;
   position: absolute;
@@ -88,116 +69,168 @@ h1::after {
   cursor: pointer;
 }
 
-/*This rule set the position and dimension of the dashboard*/
+/* DASHBOARD */
+
 #dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-  height: 10vh;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-area: dashboard;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  column-gap: 4px;
+  row-gap: 2px;
+  margin-bottom: 10px;
 }
 
-/*This rules set the buttons style*/
 .btc {
   background-color: #ccddcc;
+  grid-row: 1 / 13;
   height: 100%;
-  padding: 0 2em;
-  border-radius: 10%;
+  border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   z-index: 1;
 }
 
-/* style of counter */
 #counter {
+  grid-column: 8 / 10;
+  grid-row: 1 / 10;
   background-color: #ccddcc;
   display: grid;
   place-items: center;
-  height: 100%;
-  padding: 0 2em;
-  border-radius: 10%;
+  border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
-/*style of the colour palette*/
+#gravity {
+  grid-column: 8 / 10;
+  grid-row: 10 / 13;
+  align-self: center;
+}
+
 #colorchange {
-  padding: 0.5em;
+  grid-column: 10 / 13;
+  grid-row: 1 / 13;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5px;
   background-color: #ccddcc;
   border: black solid 1px;
-  border-radius: 8%;
+  border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
 #colorchange p {
   text-align: center;
+  margin: 10px 5px;
 }
 
-#colorchange input {
-  margin-bottom: 1px;
-  margin-left: 40%;
-  transform: translateX(-50%);
+#inputcolor {
   cursor: pointer;
 }
 
-#gravity {
-  position: absolute;
-  top: 74vh;
-  z-index: 2;
-  left: 50%;
-  transform: translateX(-50%);
+/* MUSIC AND INFO */
+
+#music {
+  grid-area: menu;
 }
 
 /*music and info buttons style and position*/
+#music {
+  margin: 0.5em 0 0 0.5em;
+}
+
 #musicPlay,
 #musicPause,
 #info {
   background-color: #ccddcc;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: -20px;
-  left: 5px;
-}
-#musicPause {
-  left: 50px;
-}
-#info {
-  top: 25px;
 }
 
-@media (max-width: 1200px) {
-  /*This rule change the position of the gravity slider*/
+@media screen and (max-width: 1150px) {
+  body {
+    grid-template-areas:
+      "menu menu menu header header header header header header . . ."
+      "menu menu menu header header header header header header . . ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard .";
+  }
+
+  .btc {
+    grid-row: span 4;
+    grid-column: span 4;
+  }
+
+  #counter {
+    grid-row: span 4;
+    grid-column: span 1;
+  }
+
   #gravity {
-    top: 50px;
-    z-index: 2;
-    top: 565px;
-    left: 50%;
-    transform: translateX(-50%);
+    grid-row: span 4;
+    grid-column: span 3;
+  }
+
+  #colorchange {
+    flex-direction: row;
+    justify-content: space-around;
+    grid-row: span 4;
+    grid-column: span 4;
+  }
+
+  #inputcolor {
+    margin-right: 5px;
   }
 }
 
-/* media that applies to screen with max width = 1024px */
-@media (max-width: 1024px) {
-  /*This rule change the position of the gravity slider*/
-  #gravity {
-    position: absolute;
-    top: 420px;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
+@media screen and (max-width: 630px) {
+  body {
+    grid-template-areas:
+      "menu header header header header header header header header header header ."
+      "menu header header header header header header header header header header ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". container container container container container container container container container container ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard ."
+      ". dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard dashboard .";
   }
-}
 
-/* media that applies to screen with max width = 768px */
-@media (max-width: 768px) {
-  /*This rule keep the buttons in the middle of the page*/
-  #buttons {
-    width: 100%;
+  .btc {
+    grid-row: span 2;
+    grid-column: span 6;
+  }
+
+  #counter {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  #gravity {
+    grid-row: span 2;
+    grid-column: span 4;
+  }
+
+  #colorchange {
+    grid-row: span 4;
+    grid-column: span 12;
+    padding: 10px;
   }
 }

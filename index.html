@@ -9,12 +9,15 @@
 
   <body>
     <!-- page content -->
-    <h1>Bouncing Balls</h1>
+    <div id="title">
+      <h1>Bouncing Balls</h1>
+      <span>Game</span>
+    </div>
     <!-- balls container -->
     <div id="container"></div>
 
     <!-- music and info buttons -->
-    <div>
+    <div id="music">
       <button id="musicPlay">🎵</button>
       <button id="musicPause">🔇</button>
       <button id="info">?</button>
@@ -28,10 +31,9 @@
       <button id="pause" class="btc">Pause</button>
       <button id="play" class="btc">Play</button>
       <button id="reset" class="btc">Reset</button>
+
       <div id="counter"><span></span></div>
-
       <!-- slider to adjust the balls gravity -->
-
       <input
         type="range"
         name="gravity"
@@ -40,6 +42,7 @@
         max="4"
         value="0"
       />
+
       <!-- </div> -->
 
       <!-- palette to change balls colour -->
