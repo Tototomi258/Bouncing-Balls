@@ -82,26 +82,32 @@ class Ball {
   }
 
   changeDirectionIfNecessary(x, y) {
-    if (x < 0 || x > container.element.offsetWidth - this.size) {
+    if (
+      x < container.element.getBoundingClientRect().left ||
+      x > container.element.getBoundingClientRect().right - this.size
+    ) {
       // if outside of container invert the direction
       this.xSpeed = -this.xSpeed;
 
       // if outside of container put the ball inside again
-      if (x < 0) {
-        this.x = 0;
+      if (x < container.element.getBoundingClientRect().left) {
+        this.x = container.element.getBoundingClientRect().left;
       } else {
-        this.x = container.element.offsetWidth - this.size;
+        this.x = container.element.getBoundingClientRect().right - this.size;
       }
     }
-    if (y < 0 || y > container.element.offsetHeight - this.size) {
+    if (
+      y < container.element.getBoundingClientRect().top ||
+      y > container.element.getBoundingClientRect().bottom - this.size
+    ) {
       // if outside of container invert the direction
       this.ySpeed = -this.ySpeed;
 
       // if outside of container put the ball inside again
-      if (y < 0) {
-        this.y = -this.y;
+      if (y < container.element.getBoundingClientRect().top) {
+        this.y = container.element.getBoundingClientRect().top;
       } else {
-        this.y = container.element.offsetHeight - this.size;
+        this.y = container.element.getBoundingClientRect().bottom - this.size;
       }
     }
   }
