@@ -43,7 +43,7 @@ The website is composed of 1 html file, 1 css file in the `style` folder, the js
 
 ## Browser compatibility
 
-- IE11: 😭
+- IE11: not functional
 - Chrome: fully functional
 - Edge: fully functional
 - Brave: not tested
