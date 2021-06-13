@@ -46,8 +46,8 @@ The website is composed of 1 html file, 1 css file in the `style` folder, the js
 - IE11: not functional
 - Chrome: fully functional
 - Edge: fully functional
-- Brave: not tested
-- Opera: not tested
+- Brave: fully functional
+- Opera: fully functional
 - Safari: semi-functional but with some bugs
 - License:
   - Music:Shenyang Kevin MacLeod (incompetech.com)  
