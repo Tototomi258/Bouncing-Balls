@@ -44,7 +44,6 @@ class ContainerMouse {
       }
 
       const containerRect = container.element.getBoundingClientRect();
-      console.log(containerRect);
       const x = that.oldX - that.defaultBallSize / 2; //x position within the element.
       const y = that.oldY - that.defaultBallSize / 2; //y position within the element.
 
