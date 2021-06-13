@@ -48,7 +48,7 @@ The website is composed of 1 html file, 1 css file in the `style` folder, the js
 - Edge: fully functional
 - Brave: fully functional
 - Opera: fully functional
-- Safari: semi-functional but with some bugs
+- Safari: fully functional
 - License:
   - Music:Shenyang Kevin MacLeod (incompetech.com)  
     Licensed under Creative Commons: By Attribution 3.0 License  
@@ -100,7 +100,7 @@ The website is composed of 1 html file, 1 css file in the `style` folder, the js
 
 ## JSDoc documentation (required)
 
-- [ ]Generate a JSDoc documentation for your code and put it in a folder called /JSDoc
+- [x]Generate a JSDoc documentation for your code and put it in a folder called /JSDoc
 
 ## Comments and code documentation
 
