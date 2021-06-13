@@ -30,6 +30,7 @@ The website is composed of 1 html file, 1 css file in the `style` folder, the js
       - `bg.jpeg`
     - music
       - `Shenyang.mp3`
+  - JSDoc
 
 ## Optional features delivered
 
