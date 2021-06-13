@@ -1,14 +1,17 @@
+/** Class that represents each ball */
 class Ball {
-  constructor(
-    id,
-    x,
-    y,
-    xSpeed,
-    ySpeed,
-    color,
-    size,
-    onClick // this function is called up every time a click on the ball is detected
-  ) {
+  /**
+   * Create a ball
+   * @param {Number} id - the ball's ID
+   * @param {Number} x - the ball's x position
+   * @param {Number} y - the ball's y position
+   * @param {Number} xSpeed - the ball's x speed
+   * @param {Number} ySpeed - the ball's y speed
+   * @param {String} color - the ball's color
+   * @param {Number} size - the ball's size
+   * @param {Function} onClick - a function that deletes the ball
+   */
+  constructor(id, x, y, xSpeed, ySpeed, color, size, onClick) {
     const that = this;
     this.x = x;
     this.y = y;
@@ -40,14 +43,21 @@ class Ball {
     });
   }
 
+  /**
+   * Changes the size of the ball
+   * @param {Number} size - new size for the ball
+   */
   setSize(size) {
-    if (size <= 80 && size >= 10) {
+    if (size <= 150 && size >= 10) {
       this.size = size;
       this.element.style.width = this.size + "px";
       this.element.style.height = this.size + "px";
     }
   }
 
+  /**
+   * Decrease the speed of the ball
+   */
   decreaseSpeed() {
     if (!(this.xSpeed < 1 && this.xSpeed > -1)) {
       this.xSpeed -= this.xSpeed * 0.1;
@@ -58,6 +68,9 @@ class Ball {
     }
   }
 
+  /**
+   * Increases the speed of the ball
+   */
   increaseSpeed() {
     if (this.xSpeed < 20 && this.xSpeed > -20) {
       this.xSpeed += this.xSpeed * 0.1;
@@ -68,6 +81,11 @@ class Ball {
     }
   }
 
+  /**
+   * Moves the ball each frame based on the gravity and stops the movement if the it's on pause
+   * @param {Number} gravity - gravity of the container
+   * @param {Boolean} pause - if the game is paused or not
+   */
   move(gravity, pause) {
     if (!pause) {
       this.x += this.xSpeed;
@@ -81,6 +99,11 @@ class Ball {
     }
   }
 
+  /**
+   * Checks whether the ball should change direction if it hits the walls of the container
+   * @param {Number} x - x position of the ball
+   * @param {Number} y - y position of the ball
+   */
   changeDirectionIfNecessary(x, y) {
     if (
       x < container.element.getBoundingClientRect().left ||

@@ -1,4 +1,11 @@
+/** Class representing the mouse interaction */
 class ContainerMouse {
+  /**
+   * Create a mouse interaction class
+   * @param {Object} element - an object that represents the container node
+   * @param {Number} defaultBallSize - the default size of the balls
+   * @param {Function} onClick - it creates the ball on user's click event
+   */
   constructor(element, defaultBallSize, onClick) {
     const that = this;
     this.oldX = 0;
@@ -16,6 +23,9 @@ class ContainerMouse {
 
       that.moved = false;
 
+      /**
+       * Checks the ammount of frames that that passed since the user clicks, until the user releases the click
+       */
       function checkFrames() {
         that.oldTime += 2;
         that.getTimeReq = requestAnimationFrame(checkFrames);
